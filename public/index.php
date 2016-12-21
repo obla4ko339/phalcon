@@ -11,6 +11,15 @@ try {
     //Create a DI
     $di = new Phalcon\DI\FactoryDefault();
 
+    $di->set('db', function(){
+       return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+          "host"=>"localhost",
+          "username"=>"root",
+          "password"=>"obla4ko",
+          "dbname"=>"iac"
+       ));
+    });
+
     //Setting up the view component
     $di->set('view', function(){
         $view = new \Phalcon\Mvc\View();
