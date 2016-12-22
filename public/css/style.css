@@ -1,3 +1,8 @@
 #menu{
-    color:red;
+    color:black;
+    background: #eee;
+}
+
+#menu ul li{
+    list-style-type: none;
 }

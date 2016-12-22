@@ -6,12 +6,26 @@
  * Time: 11:54
  */
 
+
+
 class IndexController extends \Phalcon\Mvc\Controller
 {
+    public $dir = "../phalcon/";
 
     public function indexAction()
     {
-       $this->assets->addCss("/css/style.css");
+       $this->assets->addCss("".$this->dir."css/style.css");
+
+       
+        
+//        $menu = new Menu();
+//        print_r($menu);
+//        //$menu = Menu::findFirst(1);
+//        //echo $menu->nameMenu;
+
+
+
+
     }
 
 }

@@ -30,7 +30,7 @@ class SignupController extends \Phalcon\Mvc\Controller
 
         }else{
             echo "Possible worning";
-            print_r($user);
+//            print_r($user);
         }
         $this->view->disable();
     }
