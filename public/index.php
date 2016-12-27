@@ -1,5 +1,19 @@
 <?php
+use Phalcon\Mvc\Router;
+
 try {
+
+    $router = new Router();
+
+    $router->add(
+        "/phalcon/adress",
+        [
+            "controller"=>"signup",
+            "action"=>"register",
+        ]
+    );
+
+
 
     //Register an autoloader
     $loader = new \Phalcon\Loader();
@@ -10,6 +24,14 @@ try {
 
     //Create a DI
     $di = new Phalcon\DI\FactoryDefault();
+
+    $di->set(
+        "IndexController",
+        function(){
+            $component = new Phalcon\Mvc\User\Component();
+            return $component;
+        }
+    );
 
     $di->set('db', function(){
        return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
@@ -26,6 +48,10 @@ try {
         $view->setViewsDir('../app/views/');
         return $view;
     });
+
+
+
+
 
     //Handle the request
     $application = new \Phalcon\Mvc\Application($di);

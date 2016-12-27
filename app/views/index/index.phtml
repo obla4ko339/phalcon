@@ -6,15 +6,17 @@ $menu = Menu::find(array(
 ));
 
 
-    foreach($menu as $nameM){
-        echo $nameM->nameMenu;
-    }
+
 
 
 ?>
 <div id="menu">
     <ul>
-        <li>Адреса</li>
+        <?php
+        foreach($menu as $nameM){
+            echo "<li> <a href='../".$nameM->nameMenuTranslit."'>".$nameM->nameMenu."</a></li>";
+        }
+        ?>
         </ul>
     </div>
 <?php
