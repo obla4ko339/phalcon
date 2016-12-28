@@ -8,24 +8,14 @@
 
 
 
-class IndexController extends \Phalcon\Mvc\Controller
+class IndexController extends BaseController
 {
     public $dir = "../phalcon/";
+
 
     public function indexAction()
     {
        $this->assets->addCss("".$this->dir."css/style.css");
-
-       
-        
-//        $menu = new Menu();
-//        print_r($menu);
-//        //$menu = Menu::findFirst(1);
-//        //echo $menu->nameMenu;
-
-
-
-
     }
 
 }

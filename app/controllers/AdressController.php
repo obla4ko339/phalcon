@@ -6,7 +6,7 @@
  * Date: 26.12.2016
  * Time: 16:44
  */
-class AdressController extends \Phalcon\Mvc\Controller
+class AdressController extends BaseController
 {
     public function indexAction(){
 
