@@ -6,16 +6,20 @@
  * Time: 11:54
  */
 
-
+use Phalcon\Mvc\Controller;
 
 class IndexController extends BaseController
 {
     public $dir = "../phalcon/";
 
+    public function OnConstruct(){
+        echo "index OnConstruct<br>";
+    }
 
     public function indexAction()
     {
        $this->assets->addCss("".$this->dir."css/style.css");
+        echo "Hi";
     }
 
 }

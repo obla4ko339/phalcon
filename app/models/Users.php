@@ -6,7 +6,18 @@
  * Date: 20.12.2016
  * Time: 16:47
  */
-class Users extends \Phalcon\Mvc\Model
+
+use \Phalcon\Mvc\Model;
+
+class Users extends Model
 {
+    public $id;
+    public $name;
+    public $lastname;
+    public $birthday;
+    public $email;
+    public $password;
+    public $is_active;
+
 
 }

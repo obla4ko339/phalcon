@@ -40,6 +40,6 @@ try {
     echo $application->handle()->getContent();
 
 } catch(\Phalcon\Exception $e) {
-    echo "PhalconException: ", $e->getMessage();
+    echo "Ошибка : ", $e->getMessage();
 }
 ?>

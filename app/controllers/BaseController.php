@@ -8,7 +8,5 @@
  */
 class BaseController extends \Phalcon\Mvc\Controller
 {
-    public function initialize(){
-        echo "Hello my name is Vova";
-    }
+   
 }

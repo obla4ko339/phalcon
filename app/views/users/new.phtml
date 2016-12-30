@@ -1,0 +1,43 @@
+<h3>Добавление пользователя</h3>
+
+<a href="../">В пользователи</a>
+
+<?php echo $message; ?>
+
+<?php echo $this->tag->form(""); ?>
+
+<p>
+    <label for="name">Имя:</label>
+    <?php echo $this->tag->textField("name"); ?>
+</p>
+
+<p>
+    <label for="lastname">Фамилия:</label>
+    <?php echo $this->tag->textField("lastname"); ?>
+</p>
+
+<p>
+    <label for="birthday">День рождение:</label>
+    <?php echo $this->tag->textField("birthday"); ?>
+</p>
+
+<p>
+    <label for="email">Email:</label>
+    <?php echo $this->tag->textField("email"); ?>
+</p>
+
+<p>
+    <label for="password">Пароль:</label>
+    <?php echo $this->tag->textField("password"); ?>
+</p>
+
+<p>
+    <label for="is_active">Активен?:</label>
+    <input type="hidden" name="is_active" value="false">
+    <input type="checkbox" name="is_active" value="true" id="is_active">
+</p>
+
+<p>
+    <?php echo $this->tag->submitButton("Сохранить"); ?>
+</p>
+</form>
