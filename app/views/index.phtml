@@ -1,4 +1,22 @@
-<h1>/Index.phtml</h1>
-<hr>
+<?php
+echo \Phalcon\Tag::javascriptInclude("https://code.jquery.com/jquery-3.1.1.min.js");
+echo \Phalcon\Tag::javascriptInclude("../phalcon/js/script.js");
+echo \Phalcon\Tag::javascriptInclude("../phalcon/js/materialize.js");
+echo \Phalcon\Tag::javascriptInclude("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js");
+echo \Phalcon\Tag::stylesheetLink("http://fonts.googleapis.com/icon?family=Material+Icons", false);
+//echo \Phalcon\Tag::stylesheetLink("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css", false);
+//echo \Phalcon\Tag::stylesheetLink("../phalcon/css/materialize.css");
+ $this->assets->outputJs();
+?>
+<html ng-app>
+
 <?php echo $this->getContent();?>
-<hr>
+
+<?php
+
+foreach($menus as $menuVal){
+    echo $menuVal->menu_name_translit;
+}
+
+?>
+

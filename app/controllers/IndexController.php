@@ -1,25 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: grabvn
- * Date: 20.12.2016
- * Time: 11:54
- */
+
 
 use Phalcon\Mvc\Controller;
+
 
 class IndexController extends BaseController
 {
     public $dir = "../phalcon/";
 
     public function OnConstruct(){
-        echo "index OnConstruct<br>";
+//        echo "index OnConstruct<br>";
+
     }
 
     public function indexAction()
     {
        $this->assets->addCss("".$this->dir."css/style.css");
-        echo "Hi";
+       $this->assets->addJs("http://angular-doc.herokuapp.com/angular.min.js");
+        $this->assets->addJs("../phalcon/js/app.js");
+
+        $this->view->menu = Menu::find();
+
+
+        $this->view->menus = Menu::find(
+            [
+                "limit" => "5"
+            ]
+        );
+
     }
 
 }
