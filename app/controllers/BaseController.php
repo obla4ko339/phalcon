@@ -8,5 +8,12 @@
  */
 class BaseController extends \Phalcon\Mvc\Controller
 {
-   
+   public function indexAction(){
+
+   }
+
+    public function menuAction(){
+       
+    }
+
 }
