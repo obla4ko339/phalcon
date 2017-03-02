@@ -6,11 +6,9 @@
  * Date: 28.12.2016
  * Time: 17:06
  */
-class BaseController extends \Phalcon\Mvc\Controller
+abstract class BaseController extends \Phalcon\Mvc\Controller
 {
-   public function indexAction(){
-
-   }
+   abstract public function indexAction();
 
     public function menuAction(){
        

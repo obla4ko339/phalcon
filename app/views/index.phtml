@@ -13,6 +13,7 @@ echo \Phalcon\Tag::javascriptInclude("../phalcon/js/zepto.min.js");
 echo \Phalcon\Tag::stylesheetLink("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css", false);
 echo \Phalcon\Tag::stylesheetLink("../phalcon/css/materialize.css");*/
 // $this->assets->outputJs();
+echo \Phalcon\Tag::stylesheetLink("../phalcon/css/style.css");
 echo \Phalcon\Tag::stylesheetLink("https://fonts.googleapis.com/icon?family=Material+Icons");
 echo \Phalcon\Tag::stylesheetLink("https://code.getmdl.io/1.3.0/material.indigo-pink.min.css");
 echo \Phalcon\Tag::javascriptInclude("https://code.getmdl.io/1.3.0/material.min.js");
@@ -29,7 +30,7 @@ echo \Phalcon\Tag::javascriptInclude("https://code.getmdl.io/1.3.0/material.min.
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">Title</span>
+                <span class="mdl-layout-title">ИАЦ</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
@@ -42,30 +43,26 @@ echo \Phalcon\Tag::javascriptInclude("https://code.getmdl.io/1.3.0/material.min.
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
+            <span class="mdl-layout-title">Меню</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#">Главная</a>
-                <a class="mdl-navigation__link" href="./users/">Контакты</a>
-
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-
                 <?php
-
                 $menus = Menu::find(
                     [
                         "limit" => "5"
                     ]
                 );
-
                 foreach($menus as $menu){
-                   echo  $menu->getMenuNameTranslit();
+                    echo  "<a  class='mdl-navigation__link'  href=./".$menu->getMenuNameTranslit().">".$menu->getMenuName()."</a>";
                 }
-
                 ?>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
 
+            <?php
+
+            ?>
 
             </div>
         </main>

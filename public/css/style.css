@@ -1,10 +1,18 @@
-#menu{
-    color:black;
-    background: #eee;
+.mdl-layout__header, .mdl-layout__header a {
+    background-color: rgb(245, 245, 245) !important;
+    color:#000000 !important;
+    min-height: 44px !important;
+    max-height: 35px !important;
 }
 
-#menu ul li{
-    list-style-type: none;
-    display: inline-block;
-    margin-right: 10px;
+.mdl-layout__header-row .mdl-navigation__link{
+    line-height: 45px !important;
+}
+
+.mdl-layout__header-row{
+    height: 43px !important;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button{
+    background: none !important;
 }
