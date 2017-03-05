@@ -8,6 +8,11 @@
  */
 abstract class BaseController extends \Phalcon\Mvc\Controller
 {
+
+    public function initialize(){
+        //$this->view->setTemplateAfter("common");
+    }
+
    abstract public function indexAction();
 
     public function menuAction(){

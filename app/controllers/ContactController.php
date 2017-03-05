@@ -1,20 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: home
- * Date: 02.03.2017
- * Time: 21:54
- */
-
-namespace app\controllers;
-
+    use Phalcon\Mvc\Url;
 
 class ContactController extends \BaseController
 {
 
+    public $dataContact;
+
+
+
     public function indexAction()
     {
+        $this->view->dataContact = Contact::find();
+    }
 
-
+    public function extraAction(){
+        $url = new Url();
+        echo $this->getMethod();
     }
 }
