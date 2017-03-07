@@ -8,6 +8,7 @@ class Contact extends Model
     protected $mcontact_name;
     public function initialize(){
         $this->setSource("iac_mcontact");
+
     }
 
     /**

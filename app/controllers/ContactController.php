@@ -14,7 +14,27 @@ class ContactController extends \BaseController
     }
 
     public function extraAction(){
-        $url = new Url();
-        echo $this->getMethod();
+        $regExp = '/\d{1,}/';
+        $arrExp = $this->getUrlId($regExp);
+
+        $this->view->typecontact = Mtypecontact::find(
+            [
+            "mcontact_id = 1",
+            ]
+        );
+
+
+
+    }
+
+    /**
+     * @param $regExp
+     * @return array
+     */
+    protected function getUrlId($regExp){
+        $urlString = $_GET['_url'];
+        if(preg_match($regExp, $urlString, $match)){
+            return $match;
+        }
     }
 }
