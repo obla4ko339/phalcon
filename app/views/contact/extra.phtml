@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s3"><a href="#test1">Библиотеки</a></li>
-            <li class="tab col s3"><a class="active" href="#test2">КДУ</a></li>
+            <li class="tab col s3"><a class="active" href="#test1">Библиотеки</a></li>
+            <li class="tab col s3"><a href="#test2">КДУ</a></li>
             <li class="tab col s3"><a href="#test3">Музеи</a></li>
             <li class="tab col s3"><a href="#test4">ДОД</a></li>
             <li class="tab col s3"><a href="#test5">ТЗО</a></li>
@@ -14,10 +14,12 @@
         <?php
 
         foreach($typecontact as $typecontactTel){
-            print_r($typecontactTel);
-            echo "<tr><td class='mdl-data-table__cell--non-numeric'><a href=".$_SERVER['REDIRECT_URL']."/extra/".$typecontactTel->getIdMtypecontact().">"
-                .$typecontactTel->getMtypecontactBible().
-                "</a></td></tr>";
+            ?>
+            <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
+                <span class="mdl-chip__text"><?php echo $typecontactTel->getMtypecontactBible(); ?></span>
+            </span>
+            <?php
         }
         ?>
 
@@ -25,5 +27,5 @@
     <div id="test2" class="col s12">Test 2</div>
     <div id="test3" class="col s12">Test 3</div>
     <div id="test4" class="col s12">Test 4</div>
-    <div id="test5" class="col s12">Test 4</div>
+    <div id="test5" class="col s12">Test 5</div>
 </div>

@@ -5,6 +5,7 @@ class ContactController extends \BaseController
 {
 
     public $dataContact;
+    public $getid;
 
 
 
@@ -16,17 +17,13 @@ class ContactController extends \BaseController
     public function extraAction(){
         $regExp = '/\d{1,}/';
         $arrExp = $this->getUrlId($regExp);
-
+        $this->view->getid = $arrExp[0];
         $this->view->typecontact = Mtypecontact::find(
             [
-            "mcontact_id = 1",
+            "mcontact_id = {$arrExp[0]}",
             ]
         );
-
-
-
     }
-
     /**
      * @param $regExp
      * @return array
