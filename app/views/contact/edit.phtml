@@ -1,0 +1,25 @@
+<?php  ?>
+
+<?php echo $this->tag->form(["", "method"=>"post"]); ?>
+    <div class="input-field col s12">
+        <select id="ajaxrequest" onchange="ajaxRequest();">
+            <option  value="" disabled selected>Выберите учреждение</option>
+            <?php
+            foreach($dataContact as $mContact){
+                echo " <optgroup label=".$mContact->getMcontactName().">";
+                ?>
+                <option value="1" >Option 1</option>
+                <option value="2">Option 2</option>
+                <?php
+            }
+            ?>
+
+
+        </select>
+    </div>
+
+
+<?php echo $this->tag->endForm(); ?>
+
+
+

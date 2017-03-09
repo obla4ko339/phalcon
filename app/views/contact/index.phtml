@@ -1,18 +1,13 @@
-
 <table class="mdl-data-table mdl-js-data-table mdl-data-table__header--sorted-descending mdl-shadow--2dp">
     <thead>
     <tr>
         <th class="mdl-data-table__cell--non-numeric">Муниципальный район</th>
-
     </tr>
     </thead>
     <tbody>
 <?php
-
     foreach($dataContact as $mContact){
-        echo "<tr><td class='mdl-data-table__cell--non-numeric'><a href=".$_SERVER['REDIRECT_URL']."/extra/".$mContact->getMcontactId().">"
-                                    .$mContact->getMcontactName().
-                "</a></td></tr>";
+        echo "<tr><td class='mdl-data-table__cell--non-numeric'><a href=".$_SERVER['REDIRECT_URL']."/extra/".$mContact->getMcontactId().">".$mContact->getMcontactName()."</a></td></tr>";
     }
 ?>
     </tbody>

@@ -6,7 +6,7 @@ class ContactController extends \BaseController
 
     public $dataContact;
     public $getid;
-
+    public $form;
 
 
     public function indexAction()
@@ -23,6 +23,14 @@ class ContactController extends \BaseController
             "mcontact_id = {$arrExp[0]}",
             ]
         );
+    }
+
+    public function editAction(){
+        $this->view->dataContact = Contact::find();
+    }
+
+    public function getdataAction(){
+        $this->view->typecontact = Mtypecontact::find();
     }
     /**
      * @param $regExp

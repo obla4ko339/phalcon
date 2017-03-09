@@ -17,3 +17,6 @@
     background: none !important;
 }
 
+.mdl-layout__header .mdl-layout__drawer-button{
+    color: rgb(0, 0, 0) !important;
+}
