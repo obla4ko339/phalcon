@@ -14,3 +14,4 @@ function ajaxRequest() {
         alert(responseText);
     });
 }
+
