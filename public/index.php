@@ -1,5 +1,6 @@
 <?php
 use Phalcon\Mvc\Router;
+use Phalcon\Mvc\Model\Manager as ModelsManager;
 
 try {
     //Register an autoloader
@@ -11,7 +12,6 @@ try {
 
     //Create a DI
     $di = new Phalcon\DI\FactoryDefault();
-
 
 
     $di->set('db', function(){

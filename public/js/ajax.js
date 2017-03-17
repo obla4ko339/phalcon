@@ -1,5 +1,5 @@
 document.onload = function() {
-
+    alert();
 }
 
 function ajaxRequest() {
@@ -14,4 +14,5 @@ function ajaxRequest() {
         alert(responseText);
     });
 }
+
 

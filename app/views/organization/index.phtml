@@ -1,74 +1,92 @@
-    <div class="row">
-        <div class="col-md-9 col-md-push-3 orgClass">.col-md-9 .col-md-push-3</div>
-        <div class="col-md-3 col-md-pull-9 orgClass">
-            <?php
-            if(isset($menusName)) {
-                foreach ($menusName as $nameOrg) {
-                    echo "<u>".$nameOrg->getMenuName()."</u>";
-                }
-            }
-            ?>
-            <hr>
+   <?php echo $this->getContent();?>
 
-            <?php
-                foreach($dataContact as $orgName){
-                    $orgNameArr[] = "{text:'".$orgName->getMcontactName()."'},";
-                }
-            $jsonEncodeOrgName = json_encode($orgNameArr);
+<div class="row">
+    <div class="col-md-9 col-md-push-3 orgClass">
 
-            ?>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#test1">Контакты</a></li>
+                    <li class="tab col s3"><a href="#test2">КДУ</a></li>
+                    <li class="tab col s3"><a href="#test3">Музеи</a></li>
+                    <li class="tab col s3"><a href="#test4">ДОД</a></li>
+                    <li class="tab col s3"><a href="#test5">ТЗО</a></li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12"> <div id="contacts"></div> </div>
+            <div id="test2" class="col s12">Test 2</div>
+            <div id="test3" class="col s12">Test 3</div>
+            <div id="test4" class="col s12">Test 4</div>
+            <div id="test5" class="col s12">Test 5</div>
         </div>
+
+
     </div>
-    <?php  echo "<pre>";print_r($orgNameArr);echo "</pre>"; ?>
-    <div id="tree"></div>
 
-  <script>
 
-      var treeOrg = [
-          <?php
-            foreach ($orgNameArr as $test){
-                echo $test;
+
+
+    <div class="col-md-3 col-md-pull-9 orgClass">
+    <?php
+    if(isset($menusName)) {
+        foreach ($menusName as $nameOrg) {
+            echo "<u>".$nameOrg->getMenuName()."</u>";
+        }
+    }
+    ?>
+    <hr>
+    <?php
+    //формирование дерева
+    foreach($dataContact as $orgName){
+        $orgFilName[$orgName->contact->getMcontactName()][$orgName->contactur->getMcontacturName()][] = $orgName->contactfil->getMcontactfilName();
+    }
+    foreach($orgFilName as $keyContact=>$nameContact){
+        $treeModel[] = "{text:'" . $keyContact . "',nodes:[";
+        foreach($nameContact as $keyContactur=>$nameContactur){
+            $treeModel[] .= "{text:'" . $keyContactur . "',nodes:[";
+            foreach($nameContactur as $nameContactfil){
+                if(isset($nameContactfil)) {
+                    $treeModel[] .= "{text:'" . $nameContactfil . "'},";
+                }
             }
-          ?>
-      ];
+            $treeModel[] .= "]},";
+        }
+        $treeModel[] .= "]},";
+    }
+    //формирование дерева
+    ?>
+<!--Вывод дерева-->
+        <div id="tree"></div>
+<!--Вывод дерева-->
+    </div>
+</div>
 
-      var tree = [
-          {
-              text: "Parent 1",
-              nodes: [
-                  {
-                      text: "Child 1",
-                      nodes: [
-                          {
-                              text: "Grandchild 1"
-                          },
-                          {
-                              text: "Grandchild 2"
-                          }
-                      ]
-                  },
-                  {
-                      text: "Child 2"
-                  }
-              ]
-          },
-          {
-              text: "Parent 2"
-          },
-          {
-              text: "Parent 3"
-          },
-          {
-              text: "Parent 4"
-          },
-          {
-              text: "Parent 5"
-          }
-      ];
+   <?php
 
-      $('#tree').treeview({
-          data: treeOrg,         // data is not optional
-          levels: 5
+   ?>
+  <script type="application/javascript">
+  var treeOrg = [
+      <?php
+        foreach ($treeModel as $test){
+            echo $test;
+        }
+      ?>
+  ];
 
-      });
-      </script>
+  $('#tree').treeview({
+      data: treeOrg,
+      levels: 1,
+      showBorder:true,
+      onNodeSelected: function(event, data) {
+         var request = $.ajax({
+             url:'../organization/getdata',
+             type:'POST',
+             data:{nameContact:data.text},
+             success:function(result){
+                 //alert(result);
+                 $("#contacts").after(result);
+             }
+         });
+      }
+  });
+  </script>

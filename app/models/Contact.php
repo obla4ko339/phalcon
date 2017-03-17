@@ -5,11 +5,19 @@ use Phalcon\Mvc\Model;
 class Contact extends Model
 {
     protected $mcontact_id;
-    protected $mcontact_name;
+    public $mcontact_name;
+
+
+
+
+
     public function initialize(){
         $this->setSource("iac_mcontact");
+       
 
     }
+
+
 
     /**
      * @return mixed
@@ -42,6 +50,9 @@ class Contact extends Model
     {
         $this->mcontact_name = $mcontact_name;
     }
+
+
+
 
 
 }
