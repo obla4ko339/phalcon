@@ -79,14 +79,16 @@
       showBorder:true,
       onNodeSelected: function(event, data) {
          var request = $.ajax({
-             url:'../organization/getdata',
-             type:'POST',
-             data:{nameContact:data.text},
-             success:function(result){
-                 //alert(result);
-                 $("#contacts").after(result);
-             }
-         });
+              url:'../organization/getdata',
+              type:'POST',
+              data:{nameContact:data.text},
+              success:function(result){
+
+                  $("#contacts").append(result);
+              }
+          });
+
+
       }
   });
   </script>
