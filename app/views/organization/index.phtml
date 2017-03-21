@@ -46,7 +46,8 @@
             $treeModel[] .= "{text:'" . $keyContactur . "',nodes:[";
             foreach($nameContactur as $nameContactfil){
                 if(isset($nameContactfil)) {
-                    $treeModel[] .= "{text:'" . $nameContactfil . "'},";
+                    $treeModel[] .= "{text:'" . $nameContactfil . "', icon:555},";
+
                 }
             }
             $treeModel[] .= "]},";
@@ -61,9 +62,11 @@
     </div>
 </div>
 
-   <?php
 
-   ?>
+
+   
+
+
   <script type="application/javascript">
   var treeOrg = [
       <?php
@@ -78,13 +81,13 @@
       levels: 1,
       showBorder:true,
       onNodeSelected: function(event, data) {
+          alert(data.icon);
          var request = $.ajax({
-              url:'../organization/getdata',
+              url:'../organization/getcontact',
               type:'POST',
               data:{nameContact:data.text},
               success:function(result){
-
-                  $("#contacts").append(result);
+                  $("#contacts").html(result);
               }
           });
 

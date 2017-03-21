@@ -31,15 +31,21 @@ class OrganizationController extends BaseController
                                    left join Contactfil on Contactfil.mcontactur_id=Contactur.mcontactur_id"
         );
 
-        $this->flash->notice(
-            "Здесь находятся последние статьи"
-        );
+
     }
 
     public function getDataAction(){
         $this->view->setRenderLevel(
             View::LEVEL_ACTION_VIEW
         );
+    }
+
+    public function getContactAction(){
+        $this->view->setRenderLevel(
+            View::LEVEL_ACTION_VIEW
+        );
+        $this->assets->addJs("../phalcon/js/organization/organizationGetcontact.js");
+        echo $_POST['nameContact'];
     }
 
 

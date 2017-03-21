@@ -1,5 +1,5 @@
 document.onload = function() {
-    alert();
+  
 }
 
 function ajaxRequest() {
